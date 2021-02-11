@@ -24,12 +24,12 @@ class ViewController: UIViewController {
         
         do {
             let song = Bundle.main.path(forResource: "doggy", ofType: "mp3")
-            let url = URL(string: song!)
-            var player = try? AVAudioPlayer(contentsOf: url!)
-            player?.prepareToPlay()
-            player?.volume = 1.0
-            player?.play()
-            if ((player?.isPlaying) != nil){
+            let url = NSURL(string: song!)
+            var player = try AVAudioPlayer(contentsOf: url! as URL)
+            player.prepareToPlay()
+            player.volume = 1.0
+            player.play()
+            if ((player.isPlaying)){
                 self.view.backgroundColor = UIColor.green
             }
             
