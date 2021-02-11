@@ -7,8 +7,9 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
             let song = Bundle.main.path(forResource: "doggy", ofType: "mp3")
             let url = NSURL(string: song!)
             var player = try AVAudioPlayer(contentsOf: url! as URL)
+            player.delegate = self
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
